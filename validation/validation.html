@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="bsreg.css">
+    <script>
+        function validateForm() {
+          let Username = document.forms["myForm"]["Username"].value;
+          let Password=document.forms["myForm"]["Password"].value;
+          let phnno = document.forms["myForm"]["phnno"].value;
+          var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          let EmailText=document.forms["myForm"]["email"]
+          if (!EmailText.value.match(mailFormat)) {
+            alert("InValid email address!");
+            return false;
+          } 
+          if (Username.length>6||!/^[a-zA-Z]/.test(Username)){
+            alert("Please enter valid Username \n 1.Username should be less than 6 characters \n 2.Username must have only alphabets");
+            return false;
+          }
+          if(Password.length<=6){
+            alert("Password must be greater than 6 characters");
+            return false;
+          }
+          if(phnno.length<10 ||phnno.length>10)
+          {
+                alert("Phone number must be 10 numbers");
+                return false;
+          }
+        }
+        </script>
+</head>
+<body>
+    <form name="myForm"  onsubmit="return validateForm()">
+        <fieldset>
+            <legend>Registration form</legend>
+        <div>                                                                                                                                        
+            <label for="1">Name:</label>
+            <input type="text" name="Username" id="1">
+        </div>
+        <div>
+            <label for="2">Password</label>
+            <input type="password" name="Password" id="2">
+        </div>
+        <div>
+            <label for="3">Email ID:</label>
+            <input type="email" name="email" id="3">
+        </div>
+        <div>
+            <label for="4">Phone number:</label>
+            <input type="text" name="phnno" id="4">
+        </div>
+        <div>
+            <label for="">Sex:</label>
+        </div>
+        <div>
+            <input type="radio" name="gender" id="female">
+            <label for="female">Female</label>
+        </div>
+        <div>
+            <input type="radio" name="gender" id="male">
+            <label for="male">Male</label>
+        </div>
+        <div>
+            <input type="radio" name="gender" id="other">
+            <label for="other">Other</label>
+        </div>
+        <div>
+            <label for="">Date of birth:</label>
+            <input type="date" name="DOB" id="3">
+        </div>
+        <div>
+            <label for="">Languages known:</label>
+        </div>
+        <div>
+            <input type="checkbox" name="" id="lang">
+            <label for="lang">Telugu</label>
+        </div>
+        <div>
+            <input type="checkbox" name="" id="lang">
+            <label for="lang">English</label>
+        </div>
+        <div>
+            <input type="checkbox" name="" id="lang">
+            <label for="lang">Hindi</label>
+        </div>
+        <div>
+            <input type="checkbox" name="" id="lang">
+            <label for="lang">Tamil</label>
+        </div>
+        <div>
+        <div>
+            <label for="address">Address:</label>
+            <textarea name="" id="address" cols="3" rows="6"></textarea>
+        </div>
+        <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+</body>
+</html>
